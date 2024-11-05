@@ -17,6 +17,7 @@ const RotatingCube = () => {
     <mesh ref={meshRef}>
       <cylinderGeometry args={[1, 1, 1, 32]} />
       <meshNormalMaterial color={'#468585'} emissive={'#468585'} />
+      <sparkles count={100} scale={10} size={6} speed={0.5} noise={0.5} color={'#9CDBA6'} />
     </mesh>
   );
 };
