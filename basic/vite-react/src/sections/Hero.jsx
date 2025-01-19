@@ -30,14 +30,15 @@ const Hero = () => {
                         <PerspectiveCamera makeDefault position={[0, 0, 20]} />
                         <HackerRoom 
                             position={sizes.deskPosition} 
-                            rotation={[0, -Math.PI, 0]} 
                             scale={sizes.deskPosition}
+                            rotation={[0, -Math.PI, 0]} 
+                           
                         />
                         <group>
                             <Target position={sizes.targetPosition}/>
                         </group>
-                        <ambientLight intensity={1} />
-                        <directionalLight position={[10, 10, 10]} intensity={0.5} />
+                        <ambientLight intensity={2} />
+                        <directionalLight position={[10, 10, 10]} intensity={2} />
                     </Suspense>
                 </Canvas>
             </div>
