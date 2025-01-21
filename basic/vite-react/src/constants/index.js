@@ -127,11 +127,13 @@ export const navLinks = [
       href: 'https://github.com/TafadzwaTG/TAFMUZ559_FTO2403_GroupB1-Tafadzwa-Muzamindo_DJS11', 
       texture: '/textures/project/PodPulse.jpg', 
       logo: '/assets/PodPulseLogo.jpg', 
+      logoStyle: {
+        
         backgroundColor: '#13202F',
         border: '0.2px solid #17293E',
         boxShadow: '0px 0px 60px 0px #2F6DB54D',
       },
-      spotlight: '/assets/spotlight2.png', 
+      spotlight: '/assets/spotlight3.png', 
       tags: [
         {
           id: 1,
