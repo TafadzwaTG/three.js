@@ -62,8 +62,8 @@ export const navLinks = [
       desc: "Cache Bank's landing page offers tailored banking solutions for software developers. It features a hero section highlighting key offerings, a section showcasing the bank's main features, endorsements from users, and basic information about the bank. The page encourages visitors to join Cache Bank and participate in their Discord community.",
       subdesc: 'Built with HTML, Tailwind CSS, and Google Fonts for custom typography and rapid, consistent UI design.',
       href: 'https://github.com/TafadzwaTG/SDF_Portfolio_Piece_TAFMUZ559_FTO2403_GroupA1_TAFADZWA-MUZAMINDO_SDF11',
-      texture: '/textures/project/project1.mp4',
-      logo: '/assets/project-logo1.png',
+      texture: '/textures/project/Cache Bank.jpg',
+      logo: '/assets/cacheLogo.png',
       logoStyle: {
         backgroundColor: '#2A1816',
         border: '0.2px solid #36201D',
@@ -93,8 +93,8 @@ export const navLinks = [
       desc: 'This application is designed to help users manage tasks through a Kanban-style interface, organizing tasks into columns based on their status (TODO, DOING, DONE). The main components include a navigation sidebar, a header with options for adding and editing tasks, and modals for creating and editing tasks.',
       subdesc: 'Built with HTML, CSS, Google Fonts for typography, and JavaScript for dynamic functions and interactions.',
       href: 'https://github.com/TafadzwaTG/JSL_Portfolio_Piece_TAFMUZ559_FTO2403_GroupA1_Tafadzwa-Muzamindo_JSL11',
-      texture: '/textures/project/project2.mp4',
-      logo: '/assets/project-logo2.png',
+      texture: '/textures/project/Agile Board.jpg',
+      logo: '/assets/Agile BoardLogo.jpg',
       logoStyle: {
         backgroundColor: '#13202F',
         border: '0.2px solid #17293E',
@@ -119,6 +119,43 @@ export const navLinks = [
         },
       ],
     },
+
+    {
+      title: 'PodPulse: A Modern Podcast Application',
+      desc: 'PodPulse is a feature-rich podcast application designed to elevate your listening experience. Built with cutting-edge technologies like React and Vite, PodPulse offers a sleek, responsive interface that empowers you to discover, manage, and enjoy your favorite podcasts with ease.',
+      subdesc: 'Created by Tafadzwa Muzamindo using React, Vite, Tailwind CSS, and Heroicons for a modern and efficient development process.',
+      href: 'https://github.com/TafadzwaTG/TAFMUZ559_FTO2403_GroupB1-Tafadzwa-Muzamindo_DJS11', 
+      texture: '/textures/project/PodPulse.jpg', 
+      logo: '/assets/PodPulseLogo.jpg', 
+        backgroundColor: '#13202F',
+        border: '0.2px solid #17293E',
+        boxShadow: '0px 0px 60px 0px #2F6DB54D',
+      },
+      spotlight: '/assets/spotlight2.png', 
+      tags: [
+        {
+          id: 1,
+          name: 'React',
+          path: '/assets/react.svg',
+        },
+        {
+          id: 2,
+          name: 'Vite',
+          path: '/assets/vite.svg',
+        },
+        {
+          id: 3,
+          name: 'Tailwind CSS',
+          path: '/assets/tailwind.svg',
+        },
+        {
+          id: 4,
+          name: 'Heroicons',
+          path: '/assets/heroicons.svg',
+        },
+      ],
+    },
+    
   ];
   
   
