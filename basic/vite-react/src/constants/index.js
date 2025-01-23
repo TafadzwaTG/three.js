@@ -74,7 +74,7 @@ export const navLinks = [
         {
           id: 1,
           name: 'HTML',
-          path: '/assets/html.svg',
+          path: '/assets/html5-01-svgrepo-com.svg',
         },
         {
           id: 2,
