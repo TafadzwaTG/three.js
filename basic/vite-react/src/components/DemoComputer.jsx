@@ -1,27 +1,34 @@
 import { useRef, useEffect } from 'react';
-import { useGLTF, useAnimations, useVideoTexture } from '@react-three/drei';
+import { useGLTF, useAnimations, useVideoTexture, useTexture } from '@react-three/drei';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
 
 const DemoComputer = (props) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF('/models/computer.glb');
   const { actions } = useAnimations(animations, group);
 
-  const txt = useVideoTexture(props.texture ? props.texture : '/textures/project/project1.mp4');
+  // Use appropriate texture based on file type (image or video)
+  const txt = props.texture?.endsWith('.mp4')
+    ? useVideoTexture(props.texture)
+    : useTexture(props.texture || '/textures/project/Agile Board.jpg');
 
   useEffect(() => {
     if (txt) {
-      txt.flipY = false;
-    }
-  }, [txt]);
+      txt.flipY = false; // Prevent video texture flipping
 
-  useGSAP(() => {
-    gsap.from(group.current.rotation, {
-      y: Math.PI / 2,
-      duration: 1,
-      ease: 'power3.out',
-    });
+      // Ensure image texture also has flipY = false
+      if (txt.isTexture) {
+        txt.flipY = false;
+      }
+    }
+
+    if (group.current) {
+      gsap.from(group.current.rotation, {
+        y: Math.PI / 2,
+        duration: 1,
+        ease: 'power3.out',
+      });
+    }
   }, [txt]);
 
   return (

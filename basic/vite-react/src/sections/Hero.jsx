@@ -56,15 +56,11 @@ const Hero = () => {
             </div>
 
             {/* Fixed Button Section */}
-            <div className="fixed bottom-4 left-0 right-0 w-full z-10 flex justify-center">
-                <a href="#contact" className="w-fit">
-                    <Button 
-                        name="Let's work together" 
-                        isBeam 
-                        containerClass="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
-                    />
-                </a>
-            </div>
+            <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
+        <a href="#about" className="w-fit">
+          <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
+        </a>
+      </div>
         </section>
     );
 };

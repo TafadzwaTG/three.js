@@ -26,7 +26,7 @@ export const navLinks = [
       id: 1,
       name: 'Prosper Marinda',
       position: 'Marketing Director at GreenLeaf',
-      img: 'assets/review1.png',
+      img: 'assets/prosper.jpg',
       review:
         'Working with Tafadzwa was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
     },
@@ -34,7 +34,7 @@ export const navLinks = [
       id: 2,
       name: 'Vuanza Roger',
       position: 'Founder of TechGear Shop',
-      img: 'assets/review2.png',
+      img: 'assets/roger.jpg',
       review:
         'Tafadzwa’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
     },
@@ -60,7 +60,7 @@ export const navLinks = [
     {
       title: 'Cache Bank Business Landing Page',
       desc: "Cache Bank's landing page offers tailored banking solutions for software developers. It features a hero section highlighting key offerings, a section showcasing the bank's main features, endorsements from users, and basic information about the bank. The page encourages visitors to join Cache Bank and participate in their Discord community.",
-      subdesc: 'Built with HTML, Tailwind CSS, and Google Fonts for custom typography and rapid, consistent UI design.',
+      subdesc: 'Built with HTML, Tailwind CSS, and Google Fonts.',
       href: 'https://github.com/TafadzwaTG/SDF_Portfolio_Piece_TAFMUZ559_FTO2403_GroupA1_TAFADZWA-MUZAMINDO_SDF11',
       texture: '/textures/project/Cache Bank.jpg',
       logo: '/assets/cacheLogo.png',
@@ -91,7 +91,7 @@ export const navLinks = [
     {
       title: 'Kanban Task Management',
       desc: 'This application is designed to help users manage tasks through a Kanban-style interface, organizing tasks into columns based on their status (TODO, DOING, DONE). The main components include a navigation sidebar, a header with options for adding and editing tasks, and modals for creating and editing tasks.',
-      subdesc: 'Built with HTML, CSS, Google Fonts for typography, and JavaScript for dynamic functions and interactions.',
+      subdesc: 'Built with HTML, CSS, Google Fonts , and JavaScript .',
       href: 'https://github.com/TafadzwaTG/JSL_Portfolio_Piece_TAFMUZ559_FTO2403_GroupA1_Tafadzwa-Muzamindo_JSL11',
       texture: '/textures/project/Agile Board.jpg',
       logo: '/assets/Agile BoardLogo.jpg',
@@ -123,10 +123,10 @@ export const navLinks = [
     {
       title: 'PodPulse: A Modern Podcast Application',
       desc: 'PodPulse is a feature-rich podcast application designed to elevate your listening experience. Built with cutting-edge technologies like React and Vite, PodPulse offers a sleek, responsive interface that empowers you to discover, manage, and enjoy your favorite podcasts with ease.',
-      subdesc: 'Created by Tafadzwa Muzamindo using React, Vite, Tailwind CSS, and Heroicons for a modern and efficient development process.',
+      subdesc: 'Created using React, Vite, Tailwind CSS, and Heroicons.',
       href: 'https://github.com/TafadzwaTG/TAFMUZ559_FTO2403_GroupB1-Tafadzwa-Muzamindo_DJS11', 
-      texture: '/textures/project/PodPulse.jpg', 
-      logo: '/assets/PodPulseLogo.jpg', 
+      texture: '/textures/project/pod.png', 
+      logo: '/assets/PodP.jpg', 
       logoStyle: {
         
         backgroundColor: '#13202F',
