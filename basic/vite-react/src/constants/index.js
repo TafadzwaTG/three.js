@@ -22,39 +22,41 @@ export const navLinks = [
   ];
   
   export const clientReviews = [
-    {
-      id: 1,
-      name: 'Prosper Marinda',
-      position: 'Marketing Director at GreenLeaf',
-      img: 'assets/prosper.jpg',
-      review:
-        'Working with Tafadzwa was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
-    },
-    {
-      id: 2,
-      name: 'Vuanza Roger',
-      position: 'Founder of TechGear Shop',
-      img: 'assets/roger.jpg',
-      review:
-        'Tafadzwa’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
-    },
-    {
-      id: 3,
-      name: 'John Dohsas',
-      position: 'Project Manager at UrbanTech ',
-      img: 'assets/review3.png',
-      review:
-        'I can’t say enough good things about Tafadzwa. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.',
-    },
-    {
-      id: 4,
-      name: 'Changamire Dombo',
-      position: 'CEO of BrightStar Enterprises',
-      img: 'assets/review4.png',
-      review:
-        'Tafadzwa was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.',
-    },
-  ];
+    
+      {
+        id: 1,
+        name: 'Prosper Marinda',
+        position: 'Owner of Prosper Hauling Services',
+        img: 'assets/prosper.jpg',
+        review:
+          'Tafadzwa helped us create a clean and functional website for our truck rental business. Highly recommend him!',
+      },
+      {
+        id: 2,
+        name: 'Vuanza Roger',
+        position: 'Independent Artist',
+        img: 'assets/roger.jpg',
+        review:
+          'Tafadzwa designed a modern and professional website to showcase my music. Great work!',
+      },
+      {
+        id: 3,
+        name: 'Samuel Muzamindo',
+        position: 'Owner of Clear-Site',
+        img: 'assets/Samuel.jpg',
+        review:
+          'Tafadzwa created a user-friendly website for my Clear-Site DSTV business. Very reliable and skilled!',
+      },
+      {
+        id: 4,
+        name: 'Irvyn Jonasi',
+        position: 'Owner of Jack of All Trades',
+        img: 'assets/Irvyn.jpg',
+        review:
+          'Tafadzwa built a great website for our Jack of All Trades rental business. Highly recommend his services!',
+      },
+    ];
+    
   
   export const myProjects = [
     {
@@ -177,27 +179,27 @@ export const navLinks = [
       id: 1,
       name: 'Freelance Projects',
       pos: 'Web Developer',
-      duration: '2023 - Present',
-      title: 'I am currently working on freelance projects where I apply the skills I have learned in front-end development. This includes working with HTML, CSS, JavaScript, and frameworks like React and Tailwind to create responsive, user-friendly websites.',
-      icon: '/assets/freelance.svg',
+      duration: '2024 - Present',
+      title: 'I am currently working on freelance projects where I apply the skills I learned during my coding course at Codespace. This includes creating responsive, user-friendly websites using HTML, CSS, JavaScript, and React.',
+      icon: '/assets/freelance.png',
       animation: 'victory',
     },
     {
       id: 2,
       name: 'Omega Developers',
       pos: 'Junior Web Developer',
-      duration: 'August 2024 - Present',
-      title: 'As a Junior Web Developer at Omega Developers, I contribute to the creation of websites for small local businesses, focusing on front-end development using modern web technologies.',
-      icon: '/assets/omega-developers.svg',
+      duration: '2024 - Present',
+      title: 'As a Junior Web Developer at Omega Developers, I contribute to building websites for small local businesses. My focus is on crafting responsive and user-friendly front-end solutions using React and Tailwind.',
+      icon: '/assets/omega.jpeg',
       animation: 'clapping',
     },
     {
       id: 3,
-      name: 'Self-Taught Learning',
-      pos: 'Web Developer Trainee',
-      duration: '2022 - 2023',
-      title: "I began my web development journey as a self-taught learner. Through online resources and hands-on projects, I gained proficiency in HTML, CSS, JavaScript, and React. My dedication to mastering web development led to my enrollment in a formal course.",
-      icon: '/assets/self-taught.svg',
+      name: 'Codespace',
+      pos: 'Web Development Student',
+      duration: '2023 - 2024',
+      title: 'I completed my web development course at Codespace, where I gained practical experience in front-end development. The course covered HTML, CSS, JavaScript, React, and other modern web technologies.',
+      icon: '/assets/codespace.jpg',
       animation: 'salute',
     },
   ];
