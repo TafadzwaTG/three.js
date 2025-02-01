@@ -6,29 +6,45 @@ import { SkeletonUtils } from 'three-stdlib';
 const Developer = ({ animationName = 'idle', ...props }) => {
   const group = useRef();
 
+  // Load the GLTF model (developer.glb)
   const { scene } = useGLTF('/models/animations/developer.glb');
+
+  // Clone the scene using SkeletonUtils to prevent modifying the original scene
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
+
+  // Extract nodes and materials using useGraph
   const { nodes, materials } = useGraph(clone);
 
+  // Load the animation files
   const { animations: idleAnimation } = useFBX('/models/animations/idle.fbx');
   const { animations: saluteAnimation } = useFBX('/models/animations/salute.fbx');
   const { animations: clappingAnimation } = useFBX('/models/animations/clapping.fbx');
   const { animations: victoryAnimation } = useFBX('/models/animations/victory.fbx');
 
+  // Assign names to animations for clarity
   idleAnimation[0].name = 'idle';
   saluteAnimation[0].name = 'salute';
   clappingAnimation[0].name = 'clapping';
   victoryAnimation[0].name = 'victory';
 
+  // Set up the actions for animations
   const { actions } = useAnimations(
     [idleAnimation[0], saluteAnimation[0], clappingAnimation[0], victoryAnimation[0]],
     group,
   );
 
+  // Play the appropriate animation when the animationName changes
   useEffect(() => {
-    actions[animationName].reset().fadeIn(0.5).play();
-    return () => actions[animationName].fadeOut(0.5);
-  }, [animationName]);
+    if (actions && actions[animationName]) {
+      actions[animationName].reset().fadeIn(0.5).play();
+    }
+
+    return () => {
+      if (actions && actions[animationName]) {
+        actions[animationName].fadeOut(0.5);
+      }
+    };
+  }, [animationName, actions]); // Dependency on actions to avoid rendering during the animation setup
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -99,6 +115,7 @@ const Developer = ({ animationName = 'idle', ...props }) => {
   );
 };
 
+// Preload the developer model for faster loading
 useGLTF.preload('/models/animations/developer.glb');
 
 export default Developer;
