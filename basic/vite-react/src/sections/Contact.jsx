@@ -6,24 +6,28 @@ import Alert from '../components/Alert.jsx';
 
 const Contact = () => {
   const formRef = useRef();
-
   const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
-
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
   const handleChange = ({ target: { name, value } }) => {
-    setForm({ ...form, [name]: value });
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!form.name || !form.email || !form.message) {
+      showAlert({ show: true, text: 'All fields are required!', type: 'danger' });
+      return;
+    }
+
     setLoading(true);
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        'service_83hyzom', // Updated Service ID
+        'template_6bsl9gj', // Updated Template ID
         {
           from_name: form.name,
           to_name: 'TafadzwaTG',
@@ -31,37 +35,30 @@ const Contact = () => {
           to_email: 'gumbitafadzwa@gmail.com',
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+        '5UwT3W_TpYYj5gzFG' // Updated Public Key
       )
-      .then(
-        () => {
-          setLoading(false);
-          showAlert({
-            show: true,
-            text: 'Thank you for your message 😃',
-            type: 'success',
-          });
+      .then(() => {
+        setLoading(false);
+        showAlert({
+          show: true,
+          text: 'Thank you for your message! 😃',
+          type: 'success',
+        });
 
-          setTimeout(() => {
-            hideAlert(false);
-            setForm({
-              name: '',
-              email: '',
-              message: '',
-            });
-          }, [3000]);
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          showAlert({
-            show: true,
-            text: "I didn't receive your message 😢",
-            type: 'danger',
-          });
-        },
-      );
+        setTimeout(() => {
+          hideAlert();
+          setForm({ name: '', email: '', message: '' });
+        }, 3000);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error('EmailJS Error:', error);
+        showAlert({
+          show: true,
+          text: "Message sending failed 😢. Please try again.",
+          type: 'danger',
+        });
+      });
   };
 
   return (
@@ -120,7 +117,6 @@ const Contact = () => {
 
             <button className="field-btn" type="submit" disabled={loading}>
               {loading ? 'Sending...' : 'Send Message'}
-
               <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
             </button>
           </form>
