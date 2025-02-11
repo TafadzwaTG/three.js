@@ -6,6 +6,7 @@ import Projects from './sections/Projects';
 import Clients from './sections/Clients';
 import Experience from './sections/Experience';
 import Contact from './sections/Contact';
+import Footer from './sections/Footer';
 const App = () => {
   return (
     <main className="text-3xl font-bold underline">
@@ -18,6 +19,7 @@ const App = () => {
       <Experience />
 
       <Contact />
+      <Footer />
     </main>
   );
 };

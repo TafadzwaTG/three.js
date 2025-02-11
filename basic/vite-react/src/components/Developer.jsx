@@ -1,121 +1,146 @@
-import React, { useEffect, useRef } from 'react';
-import { useGraph } from '@react-three/fiber';
-import { useAnimations, useFBX, useGLTF } from '@react-three/drei';
-import { SkeletonUtils } from 'three-stdlib';
+import React, { useEffect, useMemo, useRef } from "react";
+import { useGLTF, useFBX } from "@react-three/drei";
+import { SkeletonUtils } from "three-stdlib";
+import { useAnimations } from '@react-three/drei';
 
-const Developer = ({ animationName = 'idle', ...props }) => {
+const Developer = ({ animationName = "idle", ...props }) => {
   const group = useRef();
 
-  // Load the GLTF model (developer.glb)
-  const { scene } = useGLTF('/models/animations/developer.glb');
+  // Load the GLTF model
+  const { scene, nodes, materials } = useGLTF("/models/animations/developer.glb");
 
-  // Clone the scene using SkeletonUtils to prevent modifying the original scene
-  const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
+  // Clone the scene to avoid modifying the original
+  const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
 
-  // Extract nodes and materials using useGraph
-  const { nodes, materials } = useGraph(clone);
+  // Debugging: Log available nodes
+  useEffect(() => {
+    console.log("GLTF Nodes:", nodes);
+    console.log("Materials:", materials);
+  }, [nodes, materials]);
 
-  // Load the animation files
-  const { animations: idleAnimation } = useFBX('/models/animations/idle.fbx');
-  const { animations: saluteAnimation } = useFBX('/models/animations/salute.fbx');
-  const { animations: clappingAnimation } = useFBX('/models/animations/clapping.fbx');
-  const { animations: victoryAnimation } = useFBX('/models/animations/victory.fbx');
+  // Load animations
+  const { animations: idleAnimation } = useFBX("/models/animations/idle.fbx");
+  const { animations: saluteAnimation } = useFBX("/models/animations/salute.fbx");
+  const { animations: clappingAnimation } = useFBX("/models/animations/clapping.fbx");
+  const { animations: victoryAnimation } = useFBX("/models/animations/victory.fbx");
 
-  // Assign names to animations for clarity
-  idleAnimation[0].name = 'idle';
-  saluteAnimation[0].name = 'salute';
-  clappingAnimation[0].name = 'clapping';
-  victoryAnimation[0].name = 'victory';
+  // Ensure animations are loaded properly
+  if (!idleAnimation.length || !saluteAnimation.length || !clappingAnimation.length || !victoryAnimation.length) {
+    console.warn("One or more animations failed to load!");
+    return null;
+  }
 
-  // Set up the actions for animations
+  // Assign animation names
+  idleAnimation[0].name = "idle";
+  saluteAnimation[0].name = "salute";
+  clappingAnimation[0].name = "clapping";
+  victoryAnimation[0].name = "victory";
+
+  // Set up animations
   const { actions } = useAnimations(
-    [idleAnimation[0], saluteAnimation[0], clappingAnimation[0], victoryAnimation[0]],
-    group,
+    [...idleAnimation, ...saluteAnimation, ...clappingAnimation, ...victoryAnimation],
+    group
   );
 
-  // Play the appropriate animation when the animationName changes
+  // Debugging: Log available animations
   useEffect(() => {
-    if (actions && actions[animationName]) {
+    console.log("Available Animations:", Object.keys(actions));
+  }, [actions]);
+
+  // Handle animation changes
+  useEffect(() => {
+    if (actions[animationName]) {
       actions[animationName].reset().fadeIn(0.5).play();
     }
 
     return () => {
-      if (actions && actions[animationName]) {
+      if (actions[animationName]) {
         actions[animationName].fadeOut(0.5);
       }
     };
-  }, [animationName, actions]); // Dependency on actions to avoid rendering during the animation setup
+  }, [animationName, actions]);
+
+  // Ensure nodes exist before rendering
+  if (!nodes || !materials) return null;
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <primitive object={nodes.Hips} />
+      {/* Use Armature if Hips does not exist */}
+      {nodes.Hips ? (
+        <primitive object={nodes.Hips} />
+      ) : nodes.Armature ? (
+        <primitive object={nodes.Armature} />
+      ) : (
+        console.warn("Neither 'Hips' nor 'Armature' found in model.")
+      )}
+
       <skinnedMesh
-        geometry={nodes.Wolf3D_Hair.geometry}
-        material={materials.Wolf3D_Hair}
-        skeleton={nodes.Wolf3D_Hair.skeleton}
+        geometry={nodes?.Wolf3D_Hair?.geometry}
+        material={materials?.Wolf3D_Hair}
+        skeleton={nodes?.Wolf3D_Hair?.skeleton}
       />
       <skinnedMesh
-        geometry={nodes.Wolf3D_Glasses.geometry}
-        material={materials.Wolf3D_Glasses}
-        skeleton={nodes.Wolf3D_Glasses.skeleton}
+        geometry={nodes?.Wolf3D_Glasses?.geometry}
+        material={materials?.Wolf3D_Glasses}
+        skeleton={nodes?.Wolf3D_Glasses?.skeleton}
       />
       <skinnedMesh
-        geometry={nodes.Wolf3D_Body.geometry}
-        material={materials.Wolf3D_Body}
-        skeleton={nodes.Wolf3D_Body.skeleton}
+        geometry={nodes?.Wolf3D_Body?.geometry}
+        material={materials?.Wolf3D_Body}
+        skeleton={nodes?.Wolf3D_Body?.skeleton}
       />
       <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
-        material={materials.Wolf3D_Outfit_Bottom}
-        skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
+        geometry={nodes?.Wolf3D_Outfit_Bottom?.geometry}
+        material={materials?.Wolf3D_Outfit_Bottom}
+        skeleton={nodes?.Wolf3D_Outfit_Bottom?.skeleton}
       />
       <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
-        material={materials.Wolf3D_Outfit_Footwear}
-        skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+        geometry={nodes?.Wolf3D_Outfit_Footwear?.geometry}
+        material={materials?.Wolf3D_Outfit_Footwear}
+        skeleton={nodes?.Wolf3D_Outfit_Footwear?.skeleton}
       />
       <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Top.geometry}
-        material={materials.Wolf3D_Outfit_Top}
-        skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+        geometry={nodes?.Wolf3D_Outfit_Top?.geometry}
+        material={materials?.Wolf3D_Outfit_Top}
+        skeleton={nodes?.Wolf3D_Outfit_Top?.skeleton}
       />
       <skinnedMesh
         name="EyeLeft"
-        geometry={nodes.EyeLeft.geometry}
-        material={materials.Wolf3D_Eye}
-        skeleton={nodes.EyeLeft.skeleton}
-        morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary}
-        morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
+        geometry={nodes?.EyeLeft?.geometry}
+        material={materials?.Wolf3D_Eye}
+        skeleton={nodes?.EyeLeft?.skeleton}
+        morphTargetDictionary={nodes?.EyeLeft?.morphTargetDictionary}
+        morphTargetInfluences={nodes?.EyeLeft?.morphTargetInfluences}
       />
       <skinnedMesh
         name="EyeRight"
-        geometry={nodes.EyeRight.geometry}
-        material={materials.Wolf3D_Eye}
-        skeleton={nodes.EyeRight.skeleton}
-        morphTargetDictionary={nodes.EyeRight.morphTargetDictionary}
-        morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
+        geometry={nodes?.EyeRight?.geometry}
+        material={materials?.Wolf3D_Eye}
+        skeleton={nodes?.EyeRight?.skeleton}
+        morphTargetDictionary={nodes?.EyeRight?.morphTargetDictionary}
+        morphTargetInfluences={nodes?.EyeRight?.morphTargetInfluences}
       />
       <skinnedMesh
         name="Wolf3D_Head"
-        geometry={nodes.Wolf3D_Head.geometry}
-        material={materials.Wolf3D_Skin}
-        skeleton={nodes.Wolf3D_Head.skeleton}
-        morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
-        morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
+        geometry={nodes?.Wolf3D_Head?.geometry}
+        material={materials?.Wolf3D_Skin}
+        skeleton={nodes?.Wolf3D_Head?.skeleton}
+        morphTargetDictionary={nodes?.Wolf3D_Head?.morphTargetDictionary}
+        morphTargetInfluences={nodes?.Wolf3D_Head?.morphTargetInfluences}
       />
       <skinnedMesh
         name="Wolf3D_Teeth"
-        geometry={nodes.Wolf3D_Teeth.geometry}
-        material={materials.Wolf3D_Teeth}
-        skeleton={nodes.Wolf3D_Teeth.skeleton}
-        morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
-        morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
+        geometry={nodes?.Wolf3D_Teeth?.geometry}
+        material={materials?.Wolf3D_Teeth}
+        skeleton={nodes?.Wolf3D_Teeth?.skeleton}
+        morphTargetDictionary={nodes?.Wolf3D_Teeth?.morphTargetDictionary}
+        morphTargetInfluences={nodes?.Wolf3D_Teeth?.morphTargetInfluences}
       />
     </group>
   );
 };
 
-// Preload the developer model for faster loading
-useGLTF.preload('/models/animations/developer.glb');
+// Preload model
+useGLTF.preload("/models/animations/developer.glb");
 
 export default Developer;
