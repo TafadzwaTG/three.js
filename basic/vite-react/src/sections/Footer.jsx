@@ -14,11 +14,11 @@ const Footer = () => {
             <a href="https://github.com/TafadzwaTG" target="_blank" rel="noopener noreferrer" className="social-icon">
               <img src="/assets/github.svg" alt="github" className="w-6 h-6 hover:scale-110 transition-all" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <img src="/assets/twitter.svg" alt="twitter" className="w-6 h-6 hover:scale-110 transition-all" />
-            </a>
             <a href="https://www.instagram.com/tg_norman?igsh=NjFxZnp0NGRpY3ph&utm_source=qr" target="_blank" rel="noopener noreferrer" className="social-icon">
               <img src="/assets/instagram.svg" alt="instagram" className="w-6 h-6 hover:scale-110 transition-all" />
+            </a>
+            <a href="https://www.linkedin.com/in/tafadzwa-muzamindo-996268124/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <img src="/assets/linkedin (2).svg" alt="instagram" className="w-6 h-6 hover:scale-110 transition-all" />
             </a>
           </div>
         </div>
