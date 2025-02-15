@@ -77,12 +77,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-gray-990 to-black">
-      <div className="max-w-lg w-full p-8 bg-gray-900 text-white rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105">
-        <h2 className="text-3xl font-bold text-center mb-6">Contact Me</h2>
+    <div className="flex justify-center items-center min-h-screen bg-black">
+      <div className="max-w-lg w-full p-10 bg-black text-white rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105">
+        <h2 className="text-4xl font-bold text-center mb-6">Contact Me</h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-300">Name:</label>
+          <div className="mb-6">
+            <label htmlFor="name" className="block text-sm font-medium text-white">Name:</label>
             <input
               type="text"
               name="name"
@@ -90,11 +90,11 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               required
-              className="mt-1 p-3 w-full border border-gray-600 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-700"
+              className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email:</label>
+          <div className="mb-6">
+            <label htmlFor="email" className="block text-sm font-medium text-white">Email:</label>
             <input
               type="email"
               name="email"
@@ -102,29 +102,29 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               required
-              className="mt-1 p-3 w-full border border-gray-600 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-700"
+              className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message:</label>
+          <div className="mb-6">
+            <label htmlFor="message" className="block text-sm font-medium text-white">Message:</label>
             <textarea
               name="message"
               id="message"
               value={form.message}
               onChange={handleChange}
               required
-              className="mt-1 p-3 w-full border border-gray-600 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-700"
+              className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 text-white font-semibold rounded-lg ${loading ? 'bg-gray-500' : 'bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out transform hover:scale-105'}`}
+            className={`w-full py-4 text-white font-semibold rounded-lg ${loading ? 'bg-gray-600' : 'bg-white text-black hover:bg-gray-300 focus:ring-2 focus:ring-white transition duration-300 ease-in-out transform hover:scale-105'}`}
           >
             {loading ? "Sending..." : "Send Email"}
           </button>
         </form>
-        {status && <p className="mt-4 text-center text-sm text-gray-400">{status}</p>}
+        {status && <p className="mt-4 text-center text-sm text-white">{status}</p>}
       </div>
     </div>
   );

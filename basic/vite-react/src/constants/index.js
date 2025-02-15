@@ -55,6 +55,17 @@ export const navLinks = [
         review:
           'Tafadzwa built a great website for our Jack of All Trades rental business. Highly recommend his services!',
       },
+
+      {
+        id: 5,
+        name: 'Mergy Machuma',
+        position: 'Owner, Mergy’s Kitchen',
+        img: 'assets/mergy.jpg',
+        
+        review:
+          'Tafadzwa built a great website for Mergy’s Kitchen. Highly recommend his services!',
+      },
+      
     ];
     
   
@@ -76,7 +87,7 @@ export const navLinks = [
         {
           id: 1,
           name: 'HTML',
-          path: '/assets/html5-01-svgrepo-com.svg',
+          path: '/assets/html5.svg',
         },
         {
           id: 2,
@@ -119,6 +130,11 @@ export const navLinks = [
           name: 'JavaScript',
           path: '/assets/javascript.svg',
         },
+        {
+          id: 4,
+          name: 'Google Fonts',
+          path: '/assets/google-fonts.svg',
+        },
       ],
     },
 
@@ -128,7 +144,7 @@ export const navLinks = [
       subdesc: 'Created using React, Vite, Tailwind CSS, and Heroicons.',
       href: 'https://github.com/TafadzwaTG/TAFMUZ559_FTO2403_GroupB1-Tafadzwa-Muzamindo_DJS11', 
       texture: '/textures/project/pod.png', 
-      logo: '/assets/PodP.jpg', 
+      logo: '/assets/podP.jpg', 
       logoStyle: {
         
         backgroundColor: '#13202F',
@@ -150,12 +166,12 @@ export const navLinks = [
         {
           id: 3,
           name: 'Tailwind CSS',
-          path: '/assets/tailwind.svg',
+          path: '/assets/tailwindcss.png',
         },
         {
           id: 4,
           name: 'Heroicons',
-          path: '/assets/heroicons.svg',
+          path: '/assets/heroicon.png',
         },
       ],
     },
@@ -181,7 +197,7 @@ export const navLinks = [
       pos: 'Web Developer',
       duration: '2024 - Present',
       title: 'I am currently working on freelance projects where I apply the skills I learned during my coding course at Codespace. This includes creating responsive, user-friendly websites using HTML, CSS, JavaScript, and React.',
-      icon: '/assets/freelance.png',
+      icon: '/assets/workspace.png',
       animation: 'victory',
     },
     {

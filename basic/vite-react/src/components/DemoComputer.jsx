@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { useGLTF, useAnimations, useVideoTexture, useTexture } from '@react-three/drei';
+import { useGLTF, useAnimations, useTexture } from '@react-three/drei';
 import gsap from 'gsap';
 
 const DemoComputer = (props) => {
@@ -7,19 +7,12 @@ const DemoComputer = (props) => {
   const { nodes, materials, animations } = useGLTF('/models/computer.glb');
   const { actions } = useAnimations(animations, group);
 
-  // Use appropriate texture based on file type (image or video)
-  const txt = props.texture?.endsWith('.mp4')
-    ? useVideoTexture(props.texture)
-    : useTexture(props.texture || '/textures/project/Agile Board.jpg');
+  // Always use an image texture (PNG/JPG)
+  const txt = useTexture(props.texture || '/textures/project/AgileBoard.png');
 
   useEffect(() => {
     if (txt) {
-      txt.flipY = false; // Prevent video texture flipping
-
-      // Ensure image texture also has flipY = false
-      if (txt.isTexture) {
-        txt.flipY = false;
-      }
+      txt.flipY = false; // Ensure correct orientation
     }
 
     if (group.current) {

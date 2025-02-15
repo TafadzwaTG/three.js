@@ -22,7 +22,7 @@ const Hero = () => {
     return (
         <section className="min-h-screen w-full flex flex-col relative">
             {/* Text Section */}
-            <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 gap-3">
+            <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 gap-3 flex-grow">
                 <p className="sm:text-4xl text-2xl font-medium text-white text-center font-generalsans">
                     Hi, I'm TafadzwaTG <span className="waving-hand">👋🏼</span>
                 </p>
@@ -56,11 +56,11 @@ const Hero = () => {
             </div>
 
             {/* Fixed Button Section */}
-            <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
-        <a href="#about" className="w-fit">
-          <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
-        </a>
-      </div>
+            <div className="absolute bottom-0 left-0 right-0 w-full z-10 c-space flex justify-center mb-8">
+                <a href="#about" className="w-fit">
+                    <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
+                </a>
+            </div>
         </section>
     );
 };
