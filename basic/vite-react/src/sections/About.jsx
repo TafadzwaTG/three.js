@@ -9,7 +9,7 @@ const About = () => {
 
   // Function to handle copying email to clipboard
   const handleCopy = () => {
-    navigator.clipboard.writeText(" gumbutafadzwa@gmail.com");
+    navigator.clipboard.writeText("gumbutafadzwa@gmail.com");
     setHasCopied(true);
 
     // Reset copied state after 2 seconds
@@ -19,7 +19,7 @@ const About = () => {
   };
 
   return (
-    <section className="c-space my-20" id="#about">
+    <section className="c-space my-20" id="about">
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         {/* Left Grid Section */}
         <div className="col-span-1 xl:row-span-3">

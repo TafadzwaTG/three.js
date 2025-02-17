@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { Float, useGLTF, useTexture } from '@react-three/drei';
 import gsap from 'gsap';
 
+// Cube component that renders a 3D model and animates its rotation on hover
 const Cube = ({ ...props }) => {
   const { nodes } = useGLTF('models/cube.glb');
   const texture = useTexture('textures/cube.png');

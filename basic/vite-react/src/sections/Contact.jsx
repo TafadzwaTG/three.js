@@ -97,85 +97,82 @@ const Contact = () => {
   };
 
   return (
-    // Container for the contact form
-    <div className="flex justify-center items-center min-h-screen bg-black">
-      <div className="max-w-lg w-full p-10 bg-black text-white rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105">
-        {/* Contact Form Title */}
-        <h2 className="text-4xl font-bold text-center mb-6">Contact Me</h2>
+    // Contact Section with ID for Smooth Scrolling
+    <section id="contact" className="contact-section">
+      <div className="flex justify-center items-center min-h-screen bg-black">
+        <div className="max-w-lg w-full p-10 bg-black text-white rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105">
+          {/* Contact Form Title */}
+          <h2 className="text-4xl font-bold text-center mb-6">Contact Me</h2>
 
-        {/* Contact Form */}
-        <form onSubmit={handleSubmit}>
-          <div className="mb-6">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-white"
+          {/* Contact Form */}
+          <form onSubmit={handleSubmit}>
+            <div className="mb-6">
+              <label htmlFor="name" className="block text-sm font-medium text-white">
+                Name:
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
+              />
+            </div>
+
+            {/* Email Input Field */}
+            <div className="mb-6">
+              <label htmlFor="email" className="block text-sm font-medium text-white">
+                Email:
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
+              />
+            </div>
+
+            {/* Message Input Field */}
+            <div className="mb-6">
+              <label htmlFor="message" className="block text-sm font-medium text-white">
+                Message:
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full py-4 text-white font-semibold rounded-lg ${
+                loading
+                  ? "bg-gray-600"
+                  : "bg-white text-black hover:bg-gray-300 focus:ring-2 focus:ring-white transition duration-300 ease-in-out transform hover:scale-105"
+              }`}
             >
-              Name:
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
-            />
-          </div>
+              {loading ? "Sending..." : "Send Email"}
+            </button>
+          </form>
 
-          {/* Email Input Field */}
-          <div className="mb-6">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-white"
-            >
-              Email:
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
-            />
-          </div>
-
-          {/* Message Input Field */}
-          <div className="mb-6">
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-white"
-            >
-              Message:
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              value={form.message}
-              onChange={handleChange}
-              required
-              className="mt-2 p-4 w-full border border-gray-700 rounded-lg bg-black text-white focus:ring-2 focus:ring-white focus:outline-none transition duration-300 ease-in-out transform hover:bg-gray-800"
-            />
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={loading}
-            className={`w-full py-4 text-white font-semibold rounded-lg ${loading ? "bg-gray-600" : "bg-white text-black hover:bg-gray-300 focus:ring-2 focus:ring-white transition duration-300 ease-in-out transform hover:scale-105"}`}
-          >
-            {loading ? "Sending..." : "Send Email"}
-          </button>
-        </form>
-
-        {/* Status Message Display */}
-        {status && (
-          <p className="mt-4 text-center text-sm text-white">{status}</p>
-        )}
+          {/* Status Message Display */}
+          {status && (
+            <p className="mt-4 text-center text-sm text-white">{status}</p>
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

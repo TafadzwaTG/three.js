@@ -22,7 +22,7 @@ const Hero = () => {
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
   return (
-    <section className="min-h-screen w-full flex flex-col relative">
+    <section id="home" className="min-h-screen w-full flex flex-col relative">
       {/* Text Section */}
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 gap-3 flex-grow">
         <p className="sm:text-4xl text-2xl font-medium text-white text-center font-generalsans">
@@ -65,7 +65,7 @@ const Hero = () => {
       </div>
 
       {/* Fixed Button Section */}
-      <div className="absolute bottom-0 left-0 right-0 w-full z-10 c-space flex justify-center mb-8">
+      { /*<div className="absolute bottom-0 left-0 right-0 w-full z-10 c-space flex justify-center mb-8">
         <a href="#about" className="w-fit">
           <Button
             name="Let's work together"
@@ -73,7 +73,7 @@ const Hero = () => {
             containerClass="sm:w-fit w-full sm:min-w-96"
           />
         </a>
-      </div>
+      </div>*/ }
     </section>
   );
 };
