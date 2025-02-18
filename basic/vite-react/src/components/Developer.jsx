@@ -1,13 +1,17 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { useGLTF, useFBX } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
-import { useAnimations } from '@react-three/drei';
+import { useAnimations } from "@react-three/drei";
 
+// Renders a 3D animated character with different animations
 const Developer = ({ animationName = "idle", ...props }) => {
+  // Reference for the main group, used for animations and transformations
   const group = useRef();
 
   // Load the GLTF model
-  const { scene, nodes, materials } = useGLTF("/models/animations/developer.glb");
+  const { scene, nodes, materials } = useGLTF(
+    "/models/animations/developer.glb"
+  );
 
   // Clone the scene to avoid modifying the original
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
@@ -20,12 +24,23 @@ const Developer = ({ animationName = "idle", ...props }) => {
 
   // Load animations
   const { animations: idleAnimation } = useFBX("/models/animations/idle.fbx");
-  const { animations: saluteAnimation } = useFBX("/models/animations/salute.fbx");
-  const { animations: clappingAnimation } = useFBX("/models/animations/clapping.fbx");
-  const { animations: victoryAnimation } = useFBX("/models/animations/victory.fbx");
+  const { animations: saluteAnimation } = useFBX(
+    "/models/animations/salute.fbx"
+  );
+  const { animations: clappingAnimation } = useFBX(
+    "/models/animations/clapping.fbx"
+  );
+  const { animations: victoryAnimation } = useFBX(
+    "/models/animations/victory.fbx"
+  );
 
   // Ensure animations are loaded properly
-  if (!idleAnimation.length || !saluteAnimation.length || !clappingAnimation.length || !victoryAnimation.length) {
+  if (
+    !idleAnimation.length ||
+    !saluteAnimation.length ||
+    !clappingAnimation.length ||
+    !victoryAnimation.length
+  ) {
     console.warn("One or more animations failed to load!");
     return null;
   }
@@ -38,7 +53,12 @@ const Developer = ({ animationName = "idle", ...props }) => {
 
   // Set up animations
   const { actions } = useAnimations(
-    [...idleAnimation, ...saluteAnimation, ...clappingAnimation, ...victoryAnimation],
+    [
+      ...idleAnimation,
+      ...saluteAnimation,
+      ...clappingAnimation,
+      ...victoryAnimation,
+    ],
     group
   );
 
@@ -50,12 +70,12 @@ const Developer = ({ animationName = "idle", ...props }) => {
   // Handle animation changes
   useEffect(() => {
     if (actions[animationName]) {
-      actions[animationName].reset().fadeIn(0.5).play();
+      actions[animationName].reset().fadeIn(0.5).play(); // Play the selected animation
     }
 
     return () => {
       if (actions[animationName]) {
-        actions[animationName].fadeOut(0.5);
+        actions[animationName].fadeOut(0.5); // Fade out the animation
       }
     };
   }, [animationName, actions]);
@@ -74,6 +94,7 @@ const Developer = ({ animationName = "idle", ...props }) => {
         console.warn("Neither 'Hips' nor 'Armature' found in model.")
       )}
 
+      {/* Render individual parts of the model */}
       <skinnedMesh
         geometry={nodes?.Wolf3D_Hair?.geometry}
         material={materials?.Wolf3D_Hair}
