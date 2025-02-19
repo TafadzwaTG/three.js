@@ -9,7 +9,7 @@ const About = () => {
 
   // Function to handle copying email to clipboard
   const handleCopy = () => {
-    navigator.clipboard.writeText("gumbutafadzwa@gmail.com");
+    navigator.clipboard.writeText("gumbitafadzwa@gmail.com");
     setHasCopied(true);
 
     // Reset copied state after 2 seconds
@@ -139,7 +139,7 @@ const About = () => {
                   alt="copy"
                 />
                 <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">
-                  gumbutafadzwa@gmail.com
+                  gumbitafadzwa@gmail.com
                 </p>
               </div>
             </div>

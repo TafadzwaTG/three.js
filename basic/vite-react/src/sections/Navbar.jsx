@@ -34,7 +34,7 @@ const Navbar = () => {
           {/* Logo or Brand Name */}
           <a
             href="./"
-            className="text-white font-bold text-3xl uppercase tracking-wider hover:text-gray-400 transition-colors duration-300"
+            className="text-white font-bold text-3xl tracking-wider hover:text-gray-400 transition-colors duration-300"
           >
             TafadzwaTG
           </a>

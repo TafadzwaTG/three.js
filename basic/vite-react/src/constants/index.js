@@ -238,7 +238,7 @@ export const workExperiences = [
     id: 3,
     name: "Codespace",
     pos: "Web Development Student",
-    duration: "2023 - 2024",
+    duration: "2024",
     title:
       "I completed my web development course at Codespace, where I gained practical experience in front-end development. The course covered HTML, CSS, JavaScript, React, and other modern web technologies.",
     icon: "/assets/codespace.jpg",
