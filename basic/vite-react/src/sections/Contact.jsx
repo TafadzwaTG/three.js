@@ -40,8 +40,8 @@ const Contact = () => {
     // Sending email using EmailJS
     emailjs
       .send(
-        "service_83hyzom",
-        "template_6bsl9gj",
+        "service_0m71iu1",
+        "template_cnmlybn",
         emailParams,
         "5UwT3W_TpYYj5gzFG"
       )
@@ -65,6 +65,8 @@ const Contact = () => {
   // Fallback function in case the primary email send fails
   const fallbackSend = async (emailParams) => {
     try {
+      console.log("Email Params:", emailParams); // Debugging
+  
       const response = await fetch(
         "https://api.emailjs.com/api/v1.0/email/send",
         {
@@ -73,29 +75,28 @@ const Contact = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            service_id: "service_83hyzom",
-            template_id: "template_6bsl9gj",
+            service_id: "service_0m71iu1",
+            template_id: "template_cnmlybn",
             user_id: "5UwT3W_TpYYj5gzFG",
             template_params: emailParams,
           }),
         }
       );
-
-      const data = await response.json();
-      console.log("Fallback EmailJS Response:", data);
-
-      // Check if the fallback request was successful
-      if (response.ok) {
-        setStatus("Email sent successfully!");
-      } else {
-        setStatus("Failed to send email after retry.");
+  
+      const textResponse = await response.text(); // Handle text response
+  
+      if (!response.ok) {
+        throw new Error(`EmailJS Error: ${textResponse}`);
       }
+  
+      console.log("Fallback EmailJS Response:", textResponse);
+      setStatus("Email sent successfully!");
     } catch (error) {
       console.error("Fallback EmailJS Fetch Error:", error);
-      setStatus("Network error, please try again later.");
+      setStatus("Failed to send email. Please try again.");
     }
   };
-
+  
   return (
     // Contact Section with ID for Smooth Scrolling
     <section id="contact" className="contact-section">
@@ -156,7 +157,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-4 text-white font-semibold rounded-lg ${
+              className={`w-full py-4 text-black font-semibold rounded-lg ${
                 loading
                   ? "bg-gray-600"
                   : "bg-white text-black hover:bg-gray-300 focus:ring-2 focus:ring-white transition duration-300 ease-in-out transform hover:scale-105"

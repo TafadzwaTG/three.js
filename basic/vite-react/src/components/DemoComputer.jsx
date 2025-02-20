@@ -16,21 +16,21 @@ const DemoComputer = (props) => {
   // Load a texture for the monitor screen, defaulting to AgileBoard.png if no texture is provided via props
   const txt = useTexture(props.texture || "/textures/project/AgileBoard.png");
 
-  // Apply the texture to the monitor screen material
-  useEffect(() => {
-    if (txt) {
-      txt.flipY = true; // Ensure correct orientation
-    }
+// Apply the texture to the monitor screen material
+useEffect(() => {
+  if (txt) {
+    txt.flipY = true; // Ensure correct orientation
+  }
 
-    if (group.current) {
-      // Animate the computer rotation on load using GSAP
-      gsap.from(group.current.rotation, {
-        y: Math.PI / 2, // Rotate from 90 degrees
-        duration: 1, // Animation duration
-        ease: "power3.out", // Ease function for the animation
-      });
-    }
-  }, [txt]); // Run the effect when the texture is loaded
+  if (group.current) {
+    // Animate the computer rotation on load using GSAP
+    gsap.from(group.current.rotation, {
+      y: Math.PI / 2, // Rotate from 90 degrees
+      duration: 1, // Animation duration
+      ease: "power3.out", // Ease function for the animation
+    });
+  }
+}, [txt]);// Run the effect when the texture is loaded
 
   return (
     // Group component to hold the computer model and its children

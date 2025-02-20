@@ -216,11 +216,11 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 export const workExperiences = [
   {
     id: 1,
-    name: "Freelance Projects",
+    name: "Freelance Developer",
     pos: "Web Developer",
     duration: "2024 - Present",
     title:
-      "I am currently working on freelance projects where I apply the skills I learned during my coding course at Codespace. This includes creating responsive, user-friendly websites using HTML, CSS, JavaScript, and React.",
+      "Building sleek, responsive websites from concept to deployment. Merging creativity with clean, efficient code using React, JavaScript, and Tailwind.",
     icon: "/assets/workspace.png",
     animation: "victory",
   },
@@ -230,7 +230,7 @@ export const workExperiences = [
     pos: "Junior Web Developer",
     duration: "2024 - Present",
     title:
-      "As a Junior Web Developer at Omega Developers, I contribute to building websites for small local businesses. My focus is on crafting responsive and user-friendly front-end solutions using React and Tailwind.",
+      "Transforming ideas into pixel-perfect interfaces for local businesses. Focused on performance, accessibility, and seamless user experiences.",
     icon: "/assets/omega.jpeg",
     animation: "clapping",
   },
@@ -240,8 +240,9 @@ export const workExperiences = [
     pos: "Web Development Student",
     duration: "2024",
     title:
-      "I completed my web development course at Codespace, where I gained practical experience in front-end development. The course covered HTML, CSS, JavaScript, React, and other modern web technologies.",
+      "Sharpened front-end skills through hands-on projects. Built real-world applications while mastering React, JavaScript, and modern web stacks.",
     icon: "/assets/codespace.jpg",
     animation: "salute",
   },
 ];
+
