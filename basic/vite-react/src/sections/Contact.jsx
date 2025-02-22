@@ -41,9 +41,9 @@ const Contact = () => {
     emailjs
       .send(
         "service_0m71iu1",
-        "template_cnmlybn",
+        "template_89ue5hq",
         emailParams,
-        "5UwT3W_TpYYj5gzFG"
+        "gFRppyyO61qKldWTZ"
       )
       .then(
         (response) => {
