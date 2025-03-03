@@ -16,7 +16,7 @@ const About = () => {
       <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
         {/* Intro */}
         <div className="col-span-1 xl:row-span-3 grid-container">
-          <img src="/assets/tafadzwatg.com.jpg" alt="profile" className="w-full object-contain sm:h-[276px]" />
+          <img src="/assets/gumbi.jpg" alt="profile" className="w-full object-contain sm:h-[276px]" />
           <div>
             <p className="grid-headtext">Hey, I’m Tafadzwa</p>
             <p className="grid-subtext">
