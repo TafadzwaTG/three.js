@@ -40,7 +40,7 @@ const Contact = () => {
     // Sending email using EmailJS
     emailjs
       .send(
-        "service_0m71iu1",
+        "service_ix1dqjb",
         "template_89ue5hq",
         emailParams,
         "gFRppyyO61qKldWTZ"
@@ -75,9 +75,9 @@ const Contact = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            service_id: "service_0m71iu1",
-            template_id: "template_cnmlybn",
-            user_id: "5UwT3W_TpYYj5gzFG",
+            service_id: "service_ix1dqjb",
+            template_id: "template_89ue5hq",
+            user_id: "gFRppyyO61qKldWTZ",
             template_params: emailParams,
           }),
         }

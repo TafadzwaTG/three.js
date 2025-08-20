@@ -37,7 +37,7 @@ const Footer = () => {
             />
           </a>
           <a
-            href="https://www.linkedin.com/in/tafadzwa-muzamindo-996268124/"
+            href="https://www.linkedin.com/in/tafadzwa-muzamindo-06610a370/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
