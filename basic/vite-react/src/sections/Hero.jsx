@@ -51,7 +51,10 @@ const Hero = () => {
 
             {/* 3D objects in the scene */}
             <group>
-              <Target position={sizes.targetPosition} />
+              <Target 
+  position={sizes.targetPosition} 
+  scale={2.5} 
+/>
               <ReactLogo position={sizes.reactLogoPosition} />
               <Cube position={sizes.cubePosition} />
               <Rings position={sizes.ringPosition} />

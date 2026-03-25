@@ -11,18 +11,19 @@ const About = () => {
     setTimeout(() => setHasCopied(false), 2000);
   };
 
-  return (
+  return ( 
     <section className="c-space my-20" id="about">
       <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+
         {/* Intro */}
         <div className="col-span-1 xl:row-span-3 grid-container">
           <img src="/assets/gumbi.jpg" alt="profile" className="w-full object-contain sm:h-[276px]" />
           <div>
-            <p className="grid-headtext">Hey, I’m Tafadzwa</p>
+            <p className="grid-headtext">Hey, I’m TafadzwaTG</p>
             <p className="grid-subtext">
-              I build sleek, functional interfaces with HTML, CSS, Tailwind, JavaScript, and React.  
-              My work extends beyond flat design—I craft immersive, interactive 3D experiences  
-              using Three.js and React Three Fiber, blending aesthetics with interactivity.  
+              I’m a creative who builds digital experiences and brings energy through sound.  
+              I work across design, code, and performance—crafting immersive visuals and interactive experiences  
+              that connect with people.
             </p>
           </div>
         </div>
@@ -32,25 +33,31 @@ const About = () => {
           <img src="/assets/logos.png" alt="skills" className="w-full object-contain sm:h-[276px]" />
           <div>
             <p className="grid-headtext">What I Work With</p>
-            <p className="grid-subtext">HTML, CSS, Tailwind, JavaScript, Next.js, React, Three.js, GitHub.</p>
+            <p className="grid-subtext">
+              HTML, CSS, Tailwind, JavaScript, React, Next.js, Three.js, React Three Fiber, GitHub.
+            </p>
           </div>
         </div>
 
         {/* Remote Work & Globe */}
         <div className="col-span-1 xl:row-span-4 grid-container">
-          <div className="rounded-3xl w-full sm:h[326px] flex justify-center items-center">
+          <div className="rounded-3xl w-full sm:h-[326px] flex justify-center items-center">
             <Globe
               height={326}
               width={326}
               backgroundColor="rgba(0,0,0,0)"
               globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
               bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-              labelsData={[{ lat: -33.9249, lng: 18.4241, text: "Cape Town, South Africa", color: "white", size: 15 }]}
+              labelsData={[
+                { lat: -33.9249, lng: 18.4241, text: "Cape Town, South Africa", color: "white", size: 15 }
+              ]}
             />
           </div>
           <div>
             <p className="grid-headtext">I Work Anywhere</p>
-            <p className="grid-subtext">Cape Town-based, but time zones don’t stop me.</p>
+            <p className="grid-subtext">
+              Based in Cape Town, but my work and creativity travel beyond borders.
+            </p>
             <Button name="Contact Me" isBeam containerClass="w-full mt-10" />
           </div>
         </div>
@@ -61,15 +68,16 @@ const About = () => {
           <div>
             <p className="grid-headtext">Beyond the Code</p>
             <p className="grid-subtext">
-              I love building, learning, and teaching. I help young minds  
-              break into tech, making coding less intimidating and more accessible.
+              I believe in growth, discipline, and consistency.  
+              I’m building a personal brand, improving my craft, and creating opportunities  
+              while helping others understand and enter the tech space.
             </p>
           </div>
         </div>
 
         {/* Contact */}
         <div className="xl:col-span-1 xl:row-span-2 grid-container">
-          <img src="assets/grid4.png" alt="contact" className="w-full object-cover sm:h-[276px]" />
+          <img src="/assets/grid4.png" alt="contact" className="w-full object-cover sm:h-[276px]" />
           <div className="space-y-2 text-center">
             <p className="grid-subtext">Let’s Connect</p>
             <div className="copy-container" onClick={handleCopy}>
@@ -80,6 +88,7 @@ const About = () => {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
