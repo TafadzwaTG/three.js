@@ -19,7 +19,8 @@ const DemoComputer = (props) => {
 // Apply the texture to the monitor screen material
 useEffect(() => {
   if (txt) {
-    txt.flipY = true; // Ensure correct orientation
+    txt.flipY = false;
+    txt.needsUpdate = true;  // Ensure correct orientation
   }
 
   if (group.current) {
